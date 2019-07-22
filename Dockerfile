@@ -12,5 +12,4 @@ RUN chmod +x compile.sh
 WORKDIR /benchmark/build
 RUN ../compile.sh
 
-COPY bench ../bench
-RUN ../compile.sh
+CMD ["bash", "--init-file", "/benchmark/compile.sh"]
