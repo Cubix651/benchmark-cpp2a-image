@@ -47,6 +47,7 @@ foreach(ONE_BENCH_CPP ${ALL_BENCH_CPP})
    set(TARGET_NAME Bench_${ONE_BENCH_EXEC})
 
    add_executable(${TARGET_NAME} ${ONE_BENCH_CPP})
+   target_compile_options(${TARGET_NAME} PRIVATE -std=c++2a -fconcepts)
    set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME ${ONE_BENCH_EXEC})
    target_link_libraries(${TARGET_NAME}
 
