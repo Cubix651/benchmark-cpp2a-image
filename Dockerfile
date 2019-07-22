@@ -6,10 +6,11 @@ RUN apt install -y cmake
 WORKDIR /benchmark
 COPY CMakeLists.txt .
 COPY cmake cmake
+COPY compile.sh .
+RUN chmod +x compile.sh
+
 WORKDIR /benchmark/build
-RUN cmake -DCMAKE_BUILD_TYPE=Release /benchmark
-RUN make 
+RUN ../compile.sh
 
 COPY bench ../bench
-RUN cmake -DCMAKE_BUILD_TYPE=Release /benchmark
-RUN make
+RUN ../compile.sh
